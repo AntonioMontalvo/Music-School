@@ -29,10 +29,11 @@ var orm = {
 
     },
 
-    searchContacts: function(name, callback) {
-        var existingContact = 'SELECT * FROM' + contactsTable + ' WHERE first_name=?';
+    searchContact: function(name, callback) {
+         var s = 'select * from ' + contactsTable + ' where last_name=?';
 
-        conection.query(existingContact, [first_name], function(err, result) {
+        connection.query(s,[name], function(err, result) {
+           
             callback(result);
         });
     }

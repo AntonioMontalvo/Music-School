@@ -24,19 +24,20 @@ app.post('/api/addContact', function (req, res) {
  
 });
     //search contacts
-    app.get('api/:search?', function(req, res){
-
-    	if (req.params.searchContacts) {
-    		orm.searchContacts(req.params.searchContacts, function(data){
-    			res.json(data);
-    		});
-    	}
-    	//otherwise
-    	else {
-    		var data = orm.showAllContacts(function(data){
-    			res.json(data);
-    		});
-    	}
+    app.get('/api/:searchContact?', function(req, res){
+         
+        if(req.params.searchContact){
+            console.log("we got data");
+            orm.searchContact(req.params.searchContact, function(data){
+                res.json(data);
+            });
+            
+        }
+        else {
+            console.log("got nothing");
+           
+        }
+    	
     });
 
 };
