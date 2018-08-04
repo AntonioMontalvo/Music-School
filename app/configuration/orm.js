@@ -6,38 +6,59 @@ var connection = require('./mySqlConnection.js');
 // this is our table
 var contactsTable = 'contacts';
 //this is the Object Relational Mapper
-var orm = { 
+var orm = {
 
     showAllContacts: function(callback) {
-        var allContacts = 'SELECT * FROM ' + contactsTable;
-        connection.query(allContacts, function(err, result) {
+        var syntax = 'SELECT * FROM ' + contactsTable;
+        connection.query(syntax, function(err, result) {
             callback(result);
         });
     },
 
     addContact: function(newContactInfo, callback) {
 
-        var contact = 'INSERT INTO ' + contactsTable + '(first_name, last_name, date_of_birth, phone, email, num_of_lessons, level, date_created) VALUES (?,?,?,?,?,?,?,?)';
+        var syntax = 'INSERT INTO ' + contactsTable + '(first_name, last_name, date_of_birth, phone, email, num_of_lessons, level, date_created) VALUES (?,?,?,?,?,?,?,?)';
 
-        connection.query(contact, [newContactInfo.first_name, newContactInfo.last_name, newContactInfo.date_of_birth, newContactInfo.phone, newContactInfo.email,  newContactInfo.num_of_lessons,newContactInfo.level, newContactInfo.date_created], function(error, result) {
+        connection.query(syntax, [newContactInfo.first_name, newContactInfo.last_name, newContactInfo.date_of_birth, newContactInfo.phone, newContactInfo.email, newContactInfo.num_of_lessons, newContactInfo.level, newContactInfo.date_created], function(error, result) {
             if (error) throw error;
             callback(result);
         });
 
-        console.log('The info comes from orm.js: ' + newContactInfo.phone.length);
+        console.log('The info comes from orm.js addContact');
 
 
     },
 
     searchContact: function(name, callback) {
-         var s = 'select * from ' + contactsTable + ' where last_name=?';
+        var syntax = 'select * from ' + contactsTable + ' where last_name=?';
 
-        connection.query(s,[name], function(err, result) {
-           
+        connection.query(syntax, [name], function(err, result) {
+
             callback(result);
         });
-    }
+    },
 
+    updateContactInfo: function(reviewedContact, callback) {
+        var syntax = 'UPDATE ' + contactsTable + ' SET `first_name`=?, `last_name`=?, `date_of_birth`=?, `phone`=?, `email`=?, `num_of_lessons`=?, `level`=?, `date_created`=? where `id`=?';
+
+        connection.query(syntax, [reviewedContact.first_name, reviewedContact.last_name, reviewedContact.date_of_birth, reviewedContact.phone, reviewedContact.email, reviewedContact.num_of_lessons, reviewedContact.level, reviewedContact.date_created, reviewedContact.id], function(error, results) {
+            if (error) throw error;
+            callback(results);
+
+        });
+        console.log('The info comes from orm.js updateContactInfo: ' + reviewedContact.id);
+
+    },
+
+    deleteContact: function(contact, callback){
+        console.log(contact.id);
+        var syntax = 'DELETE FROM '  + contactsTable + ' WHERE id=?';
+
+        connection.query(syntax, [contact.id], function(error, results){
+            if(error) throw error;
+            callback (results);
+        });
+    }
 };
 
 //lets make our orm available

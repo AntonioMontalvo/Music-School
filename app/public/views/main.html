@@ -5,11 +5,11 @@
     <meta charset="utf-8">
     <meta name="author" content="Antonio Montalvo">
     <meta name="description" content="Guitar lessons and drum lessons for Sherman Oaks, Encino, Studio City, Van Nuys area. Learn with a professional instructor, for all skill levels.">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
     <!-- jQuey Validate -->
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
     <!-- momentJS -->
@@ -26,7 +26,7 @@
         <li class="nav-item to-right"><a class="nav-link " href="#">Item 2</a></li>
         <li class="nav-item to-right"><a class="nav-link " href="#">Item 3</a></li>
     </ul>
-    <!--Show all contacts in our database  -->
+    <!--Show ALL contacts in our database  -->
     <div class="container">
         <h1 class="display-3 title">Guitar and Drum Lessons.</h1>
     </div>
@@ -55,7 +55,6 @@
                                     <th scope="col">Num of Lessons</th>
                                     <th scope="col">Lessons</th>
                                     <th scope="col">Date Created</th>
-                                    <th scope="col">Update Info</th>
                                 </tr>
                             </thead>
                             <tbody id="dump-contacts">
@@ -68,78 +67,70 @@
             <!-- End of the display all contacts -->
         </div>
     </div>
-    <!-- Modal test -->
+    <br>
+    <!-- ADD Contact to database form -->
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <button type="" class="open">Click to open modal</button>
-                <div class="pop-outer">
-                    <div class="pop-inner">
-                        <button type="" class="close">Click to close modal</button>
-                        <h2>Custom pop-up example</h2>
-                        <p>What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    </div>
+        <div class="col-lg-12">
+            <h2>Add Contact Information</h2>
+            <form action="" method="POST" id="contact-form" role="form">
+                <div class="form-group">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" id="first_name" name="first_name">
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" id="last_name" name="last_name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="mail" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="date_of_birth">Birthday:</label>
+                    <input type="date" id="date_of_birth" name="date_of_birth">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="phone" id="phone" name="phone">
+                </div>
+                <legend>Additional Information</legend>
+                <div class="form-group">
+                    <input type="radio" id="drums" name="instrument" value="drums">
+                    <label for="drums">Drums</label>
+                    <input type="radio" id="guitar" name="instrument" value="guitar" />
+                    <label for="guitar">Guitar</label>
+                </div>
+                <div class="form-group">
+                    <input type="radio" id="beginner" name="level" value="beginner">
+                    <label for="beginner">Beginner</label>
+                    <input type="radio" id="intermediate" name="level" value="intermediate" />
+                    <label for="guitar">Intermediate</label>
+                    <input type="radio" id="advance" name="level" value="advance" />
+                    <label for="guitar">Advance</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-md level" id="newContactInfo"><span class="glyphicon glyphicon-search" value="Submit" />Submit new contact</button>
+            </form>
         </div>
     </div>
-    <!-- End of Modal test -->
-    <!-- Add Contact to database form -->
+    <br>
+    <!-- SEARCH Contacts  -->
     <div class="container">
-        <form action="" method="POST" id="contact-form" role="form">
-            <h1>Add Contact Information</h1>
-            <fieldset>
-                <legend><span class="number">1</span>Basic info</legend>
-                <label for="first_name">First Name:</label>
-                <input type="text" id="first_name" name="first_name">
-                <label for="last_name">Last Name:</label>
-                <input type="text" id="last_name" name="last_name">
-                <br>
-                <label for="email">Email:</label>
-                <input type="mail" id="email" name="email">
-                <br>
-                <label for="date_of_birth">Birthday:</label>
-                <input type="date" id="date_of_birth" name="date_of_birth">
-                <br>
-                <label for="phone">Phone:</label>
-                <input type="phone" id="phone" name="phone">
-            </fieldset>
-            <fieldset>
-                <legend><span class="number">2</span>Additional Information</legend>
-                <input type="radio" id="drums" name="instrument" value="drums">
-                <label for="drums">Drums</label>
-                <input type="radio" id="guitar" name="instrument" value="guitar" />
-                <label for="guitar">Guitar</label>
-            </fieldset>
-            <fieldset>
-                <input type="radio" id="beginner" name="level" value="beginner">
-                <label for="beginner">Beginner</label>
-                <input type="radio" id="intermediate" name="level" value="intermediate" />
-                <label for="guitar">Intermediate</label>
-                <input type="radio" id="advance" name="level" value="advance" />
-                <label for="guitar">Advance</label>
-            </fieldset>
-            <button type="submit" class="btn btn-primary btn-md level" id="newContactInfo"><span class="glyphicon glyphicon-search" value="Submit" />Submit new contact</button>
-        </form>
-        <!-- Search Contacts  -->
         <div class="col-lg-12">
+            <h2>Search contacts</h2>
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><strong>Contact Search</strong></h3>
+                    <h4 class="panel-title"><strong>Enter Last Name</strong></h4>
                 </div>
                 <div class="panel-body">
-                    <input type="text" id="last_name_search" class="form-control">
+                    <input type="text" id="last_name_search" class=" input-group input-group-sm mb-3">
                     <div class="text-right">
-                        <button type="submit" class="btn btn-primary btn-md" id="searchContact"><span class="glyphicon glyphicon-search"></span> Search by last name.</button>
+                        <button type="submit" class="btn btn-primary btn-md" id="searchContact"><span class="glyphicon glyphicon-search"></span> Search now!.</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><strong>These are the brands available in your search!</strong></h3>
-                </div>
                 <div id="no-contacts-message">
                     <!-- Message will go here -->
                 </div>
@@ -148,7 +139,104 @@
                 </div>
             </div>
         </div>
-        <script src="/js/mySchool.js" type="text/javascript"></script>
+        <!--SEARCH MODAL  -->
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="modal fade" id="search-contact-modal" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <!-- <button class="close" data-dismiss="modal">&times;</button> -->
+                                    <h4 id="modal-welcome" class="modal-title"></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form method="POST" id="modal-update" role="form">
+                                        <div class="form-group">
+                                            <label for="inputUserName">First Name</label>
+                                            <input class="form-control" placeholder="update first name" type="text" id="inputUserName" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputLastName">Last Name</label>
+                                            <input class="form-control" placeholder="update last name" type="text" id="inputLastName" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputEmail">User email</label>
+                                            <input class="form-control" placeholder="update email" type="email" id="inputEmail" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="dateOfBirth">Birthday</label>
+                                            <input type="date" id="dateOfBirth" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="phoneNumber">Phone Number</label>
+                                            <input type="tel" id="phoneNumber" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="contactId">Contact's Id</label>
+                                            <input type="text" readonly class="form-control-plaintext" id="contactId" value="email@example.com">
+                                        </div>
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <legend>Additional Information</legend>
+                                                <input type="radio" id="drums_choice" name="instrument" value="drums">
+                                                <label for="drums_choice">Drums</label>
+                                                <input type="radio" id="guitar_choice" name="instrument" value="guitar">
+                                                <label for="guitar_choice">Guitar</label>
+                                            </div>
+                                        </fieldset>
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <input type="radio" id="beginner_level" name="level" value="beginner">
+                                                <label for="beginner_level">Beginner</label>
+                                                <input type="radio" id="intermediate_level" name="level" value="intermediate">
+                                                <label for="interMediate_level">Intermediate</label>
+                                                <input type="radio" id="advance_level" name="level" value="advance">
+                                                <label for="advance_level">Advance</label>
+                                            </div>
+                                        </fieldset>
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="UpdateNow" type="submit" value="Submit" class="btn btn-success">Accept Changes</button>
+                                    <button id="exit" class="btn btn-danger" data-dismiss="modal">Exit</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End SEARCH of Modal -->
+        <!-- WARNING THIS IS THE DELETE MODAL -->
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="modal fade" id="delete-contact-modal" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 id="modal-message" class="modal-title">Are you sure you want to delete the contact below?</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <h3 id="final-warning"></h3>
+                                </div>
+                                <div class="modal-footer">
+                                    <button id="delete" type="submit" value="Submit" class="btn btn-warning">Delete for ever!</button>
+                                    <button id="exit-delete" class="btn btn-danger" data-dismiss="modal">Exit</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end of DELETE modal -->
 </body>
+<script src="/js/mySchool.js" type="text/javascript"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 
 </html>
